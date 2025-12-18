@@ -42,7 +42,7 @@ const skills = {
 export default function SkillsSection({ theme, textColor, inverseBg, inverseText }: { theme: string, textColor: string, inverseBg: string, inverseText: string }) {
   return (
     <section id="skills" className="min-h-screen flex items-center py-20 px-6">
-      <div className="max-w-7xl mx-auto px-12 py-4">
+      <div className="max-w-7xl mx-auto md:px-0 p-4">
         <motion.h2 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +63,12 @@ export default function SkillsSection({ theme, textColor, inverseBg, inverseText
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-3 mb-6">
-                {category === 'frontend' && <Code2 className="w-6 h-6" />}
+                {/* {category === 'frontend' && <Code2 className="w-6 h-6" />}
                 {category === 'backend' && <Database className="w-6 h-6" />}
                 {category === 'tools' && <Figma className="w-6 h-6" />}
+                {category === 'stateManagement' && <Figma className="w-6 h-6" />}
+                {category === 'dataHandling' && <Figma className="w-6 h-6" />}
+                {category === 'databases' && <Figma className="w-6 h-6" />} */}
                 <h3 className="text-2xl font-bold capitalize">{category}</h3>
               </div>
               

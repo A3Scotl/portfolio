@@ -50,7 +50,7 @@ export default function Header() {
                     <button
                         className={`${inverseBg} ${inverseText} cursor-pointer  px-6 py-2 rounded-full text-xl  font-bold hover:scale-105 transition-transform`}
                     >
-                        _Angx_
+                        Angx_
                     </button>       
                  </motion.div>
 

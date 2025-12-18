@@ -2,11 +2,15 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+   "scripts": {
     "dev": "next dev",
+    "dev:fast": "next dev --turbopack",
     "build": "next build",
+    "build:skip-lint": "NEXT_DISABLE_ESLINT=true next build && next-sitemap",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "sitemap": "next-sitemap"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

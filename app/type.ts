@@ -4,7 +4,7 @@ interface Project {
     slug: string;
     title: string;
     description: string;
-    image: [];
+    // image: [];
     thumbnail: string;
     tags: string[];
     github: string;

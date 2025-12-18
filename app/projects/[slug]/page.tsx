@@ -10,13 +10,11 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
     const { theme } = useTheme();
     const router = useRouter();
     const [project, setProject] = useState<typeof projects[0] | null>(null);
-
-    useEffect(() => {
-        const foundProject = projects.find(p => p.slug === slug);
-        if (foundProject) {
-            setProject(foundProject);
-        }
-    }, [slug]);
+    
+    // Find the project directly during render, as it's a synchronous operation
+    // and doesn't require an effect.
+    const foundProject = projects.find(p => p.slug === slug);
+    if (!project && foundProject) setProject(foundProject);
 
     if (!project) return null;
 

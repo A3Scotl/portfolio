@@ -1,24 +1,41 @@
 "use client"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@/context/theme-context";
+import Lottie from "lottie-react";
 import AboutSection from "@/components/about";
 import SkillsSection from "@/components/skills";
 import ProjectsSection from "@/components/projects";
 import ContactSection from "@/components/contact";
 import HeroSection from "@/components/hero";
+import loaderAnimation from "@/animations/Loader.json";
 import { projects } from "@/data/projects";
 
 export default function Portfolio() {
   const { theme } = useTheme();
-
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
 
   const bgColor = theme === 'dark' ? 'bg-zinc-900' : 'bg-white';
   const textColor = theme === 'dark' ? 'text-white' : 'text-black';
   const inverseBg = theme === 'dark' ? 'bg-white' : 'bg-zinc-900';
   const inverseText = theme === 'dark' ? 'text-black' : 'text-white';
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+        <div className="w-full h-screen bg-white flex flex-col justify-center items-center"> 
+          <Lottie animationData={loaderAnimation} loop={true} className="w-36 h-36 mx-auto" />
+        </div>
+    );
+  }
 
   return (
     <div className={`${bgColor} ${textColor} transition-colors duration-500`}>

@@ -23,7 +23,9 @@ export default function ProjectDetail({ project, onBack, theme }: { project: Pro
                     <motion.img
                         src={project.thumbnail}
                         alt="Hero image"
+                        loading="lazy"
                         className="
+
     w-full h-full
     object-cover
     mx-auto

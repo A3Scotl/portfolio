@@ -3,28 +3,26 @@ import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react';
 
 export default function HeroSection({ theme, inverseBg, inverseText }: { theme: string, bgColor: string, textColor: string, inverseBg: string, inverseText: string }) {
 
-    // Define variants for staggered animation (for the whole text)
     const textVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1, // Delay between each letter
-                duration: 2, // Duration of the animation for the whole text
+                staggerChildren: 0.1,
+                duration: 1, 
             },
         },
     };
 
-    // Define variants for each letter with spring effect
     const letterVariants = {
-        hidden: { opacity: 0, y: 20 },  // Make letters start below and hidden
+        hidden: { opacity: 0, y: 20 }, 
         visible: { 
             opacity: 1, 
             y: 0, 
             transition: { 
                 type: 'spring' as const, 
-                stiffness: 100,  // Spring stiffness
-                damping: 25,     // Spring damping for smooth animation
+                stiffness: 100,  
+                damping: 25,     
             }
         },
     };
@@ -134,10 +132,10 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                     <motion.img
                         src="/images/hero.jpg"
                         alt="Hero image"
+                        loading="lazy"
                         className="w-70 h-70 object-cover rounded-full mx-auto cursor-pointer"
                         whileHover={{
                             scale: 1.12,
-                            rotate: -2,
                             filter: 'brightness(1.1) contrast(1.1)',
                         }}
                         transition={{

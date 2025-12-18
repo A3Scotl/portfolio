@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 // About Section
 export default function AboutSection({ theme, textColor }: { theme: string, textColor: string }) {
     return (
-        <section id="about-me" className="min-h-screen flex items-center py-20 px-6">
-            <div className="max-w-7xl mx-auto md:px-0 p-4">
+        <section id="about-me" className="min-h-screen flex items-center py-20">
+            <div className="max-w-7xl mx-auto  p-12">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}

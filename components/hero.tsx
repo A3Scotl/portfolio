@@ -2,14 +2,41 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react';
 
 export default function HeroSection({ theme, inverseBg, inverseText }: { theme: string, bgColor: string, textColor: string, inverseBg: string, inverseText: string }) {
+
+    // Define variants for staggered animation (for the whole text)
+    const textVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1, // Delay between each letter
+                duration: 2, // Duration of the animation for the whole text
+            },
+        },
+    };
+
+    // Define variants for each letter with spring effect
+    const letterVariants = {
+        hidden: { opacity: 0, y: 20 },  // Make letters start below and hidden
+        visible: { 
+            opacity: 1, 
+            y: 0, 
+            transition: { 
+                type: 'spring', 
+                stiffness: 100,  // Spring stiffness
+                damping: 25,     // Spring damping for smooth animation
+            }
+        },
+    };
+
     return (
-        <section id="hero" className="min-h-screen  flex items-center">
+        <section id="hero" className="min-h-screen flex items-center">
             <div className="w-full flex">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.1 }}
-                    className={`bg-transparent w-full pt-4 mx-auto px-12 sm:px-12 md:px-42 flex flex-col justify-center min-h-[100vh] `}
+                    className={`bg-transparent w-full pt-4 pl-12 sm:pl-12 lg:pl-42 flex flex-col justify-center min-h-screen `}
                 >
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -21,12 +48,16 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                     </motion.p>
 
                     <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
+                        initial="hidden"
+                        animate="visible"
+                        variants={textVariants}
                         className="text-3xl md:text-5xl font-bold mb-6"
                     >
-                        Nguyen Truong An
+                        {["N", "g", "u", "y", "e", "n", " ", "T", "r", "u", "o", "n", "g", " ", "A", "n"].map((letter, index) => (
+                            <motion.span key={index} variants={letterVariants}>
+                                {letter}
+                            </motion.span>
+                        ))}
                     </motion.h1>
 
                     <motion.p
@@ -35,7 +66,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                         transition={{ delay: 0.1 }}
                         className="text-xl md:text-2xl mb-8 opacity-80"
                     >
-                        Developer / UI Designer
+                        Developer / Designer
                     </motion.p>
 
                     <motion.div
@@ -61,7 +92,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                         ))}
                     </motion.div>
 
-                    <motion.button
+                    {/* <motion.button
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.1 }}
@@ -71,7 +102,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                     >
                         <Download className="w-5 h-5 " />
                         Download CV
-                    </motion.button>
+                    </motion.button> */}
 
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -79,7 +110,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                         transition={{ delay: 0.1 }}
                         className="mt-12 animate-bounce"
                     >
-                        <ChevronDown className="w-6 h-6 opacity-50" />
+                        <ChevronDown className="w-8 h-8" />
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -102,13 +133,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                     <motion.img
                         src="/images/hero.jpg"
                         alt="Hero image"
-                        className="
-    w-70 h-70
-    object-cover
-    rounded-full
-    mx-auto
-    cursor-pointer
-  "
+                        className="w-70 h-70 object-cover rounded-full mx-auto cursor-pointer"
                         whileHover={{
                             scale: 1.12,
                             rotate: -2,
@@ -119,10 +144,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                             ease: 'easeOut',
                         }}
                     />
-
                 </motion.div>
-
-
             </div>
         </section>
     );

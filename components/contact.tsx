@@ -4,8 +4,8 @@ import { Mail, Github, Linkedin } from "lucide-react";
 // Contact Section
 export default function ContactSection({ theme, textColor, inverseBg, inverseText }: { theme: string, textColor: string, inverseBg: string, inverseText: string }) {
   return (
-    <section id="contact" className="min-h-screen flex items-center py-20 px-6">
-      <div className="max-w-4xl mx-auto w-full text-center">
+    <section id="contact" className="min-h-screen flex items-center py-20">
+      <div className="max-w-7xl mx-auto w-full px-12 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

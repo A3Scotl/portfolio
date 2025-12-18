@@ -92,12 +92,14 @@ export default function Header() {
                 <div className="md:hidden flex items-center gap-4">
                     <button
                         onClick={toggleTheme}
+                        aria-label="Toggle theme"
                         className={`p-2 rounded-full ${theme === 'dark' ? 'bg-black' : 'bg-white'} cursor-pointer hover:scale-110 transition-transform`}
                     >
                         {theme === 'dark' ? <Sun className="w-5 h-5 text-white" /> : <Moon className="w-5 h-5 text-black" />}
                     </button>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Menu"
                         className={`p-2 rounded-full ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} cursor-pointer hover:scale-110 transition-transform`}
                     >
                         {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

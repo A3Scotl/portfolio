@@ -22,7 +22,7 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
             opacity: 1, 
             y: 0, 
             transition: { 
-                type: 'spring', 
+                type: 'spring' as const, 
                 stiffness: 100,  // Spring stiffness
                 damping: 25,     // Spring damping for smooth animation
             }
@@ -76,13 +76,14 @@ export default function HeroSection({ theme, inverseBg, inverseText }: { theme: 
                         className="flex gap-4 mb-8"
                     >
                         {[
-                            { icon: Github, href: 'https://github.com/A3Scotl' },
-                            { icon: Linkedin, href: 'https://www.linkedin.com/in/nguyentruongan-se/' },
-                            { icon: Mail, href: 'nguyentruongan0610@gmail.com' }
+                            { icon: Github, href: 'https://github.com/A3Scotl', label: 'GitHub' },
+                            { icon: Linkedin, href: 'https://www.linkedin.com/in/nguyentruongan-se/', label: 'LinkedIn' },
+                            { icon: Mail, href: 'mailto:nguyentruongan0610@gmail.com', label: 'Email' }
                         ].map((social, index) => (
                             <motion.a
                                 key={index}
                                 href={social.href}
+                                aria-label={social.label}
                                 whileHover={{ scale: 1.2, rotate: 5 }}
                                 whileTap={{ scale: 0.1 }}
                                 className={`p-3 rounded-full ${theme === 'dark' ? 'bg-white/10 hover:bg-white/20' : 'bg-black/10 hover:bg-black/20'} transition-colors`}

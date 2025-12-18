@@ -9,7 +9,7 @@ import { ProjectsSectionProps } from '@/app/type';
 export default function ProjectsSection({ theme, textColor, inverseBg, inverseText, projects }: ProjectsSectionProps) {
     return (
         <section id="portfolio" className="min-h-screen flex items-center py-20 px-6">
-            <div className="max-w-7xl mx-auto w-full">
+            <div className="max-w-6xl mx-auto w-full px-4 md:px-0">
                 <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}

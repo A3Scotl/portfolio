@@ -14,18 +14,7 @@ export default function ProjectDetail({ project, onBack, theme }: { project: Pro
             exit={{ opacity: 0 }}
             className={`${bgColor} ${textColor} h-full pb-30`}
         >
-            <div className="max-w-6xl mx-auto">
-                <motion.button
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    whileHover={{ scale: 1.05 }}
-                    onClick={onBack}
-                    className={ `text-start mb-12  rounded-full font-medium transition-colors flex items-center gap-2`}
-                >
-                    <ChevronLeft className="w-5 h-5" />
-                    Back
-                </motion.button>
-
+            <div className=" sm:px-12 md:max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -43,13 +32,13 @@ export default function ProjectDetail({ project, onBack, theme }: { project: Pro
   "
                     />
 
-                    <div className="grid md:grid-cols-3 gap-12 mb-12">
+                    <div className="grid md:grid-cols-3 gap-12 mb-12 px-4">
                         <div className="md:col-span-2">
-                            <h2 className="text-3xl font-bold mb-4">About the Project</h2>
-                            <p className="text-lg opacity-80 leading-relaxed mb-6">
+                            <h2 className="text-justify    text-3xl font-bold mb-4">{project.title}</h2>
+                            <p className=" text-justify   text-lg opacity-80 leading-relaxed mb-6">
                                 {project.description}
                             </p>
-                            <p className="text-lg opacity-80 leading-relaxed">
+                            <p className="text-justify text-lg opacity-80 leading-relaxed">
                                 This project showcases modern web development practices, including responsive design,
                                 smooth animations, and optimal performance. Built with a focus on user experience
                                 and accessibility, it demonstrates proficiency in the latest frontend technologies.

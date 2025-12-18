@@ -42,7 +42,7 @@ const skills = {
 export default function SkillsSection({ theme, textColor, inverseBg, inverseText }: { theme: string, textColor: string, inverseBg: string, inverseText: string }) {
   return (
     <section id="skills" className="min-h-screen flex items-center py-20 px-6">
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto px-12 py-4">
         <motion.h2 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
